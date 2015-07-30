@@ -27,6 +27,7 @@ dependencies {
 	compile ratpack.dependency('session')
 	compile ratpack.dependency('pac4j')
 	compile "org.pac4j:pac4j-http:1.7.0"
+	compile "org.pac4j:pac4j-oauth:1.7.0"
 
 
 	// Default SLF4J binding.  Note that this is a blocking implementation.

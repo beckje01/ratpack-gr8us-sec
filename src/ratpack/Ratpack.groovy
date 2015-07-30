@@ -1,9 +1,6 @@
-import org.pac4j.http.client.BasicAuthClient
-import org.pac4j.http.credentials.SimpleTestUsernamePasswordAuthenticator
-import org.pac4j.http.profile.UsernameProfileCreator
+import org.pac4j.oauth.client.TwitterClient
 import ratpack.pac4j.RatpackPac4j
-import ratpack.session.Session
-import ratpack.session.clientside.ClientSideSessionModule
+
 
 import static ratpack.groovy.Groovy.ratpack
 import ratpack.session.SessionModule
@@ -15,12 +12,12 @@ ratpack {
 
 	handlers {
 
-		all(RatpackPac4j.authenticator(new BasicAuthClient(new SimpleTestUsernamePasswordAuthenticator(), new UsernameProfileCreator())))
+		all(RatpackPac4j.authenticator(new TwitterClient("key", "secret")))
 
-		prefix("auth"){
+		prefix("auth") {
 			//Require all requests past this point to have auth.
-			all(RatpackPac4j.requireAuth(BasicAuthClient))
-			get{
+			all(RatpackPac4j.requireAuth(TwitterClient))
+			get {
 				render "An authenticated page."
 			}
 		}
