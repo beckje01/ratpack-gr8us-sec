@@ -25,6 +25,8 @@ dependencies {
 	springloaded "org.springframework:springloaded:1.2.3.RELEASE"
 
 	compile ratpack.dependency('session')
+	compile ratpack.dependency('pac4j')
+	compile "org.pac4j:pac4j-http:1.7.0"
 
 
 	// Default SLF4J binding.  Note that this is a blocking implementation.
