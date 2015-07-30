@@ -1,4 +1,5 @@
 import ratpack.session.Session
+import ratpack.session.clientside.ClientSideSessionModule
 
 import static ratpack.groovy.Groovy.ratpack
 import ratpack.session.SessionModule
@@ -6,6 +7,10 @@ import ratpack.session.SessionModule
 ratpack {
 	bindings {
 		module SessionModule
+		module(ClientSideSessionModule, { config ->
+			config.setSessionCookieName("s1")
+			config.setSecretToken("fakeToken")
+		})
 	}
 
 	handlers {
